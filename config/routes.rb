@@ -1,4 +1,12 @@
 DemoApp::Application.routes.draw do
+  get "pages/home"
+
+  get "pages/contact"
+
+  get "paqes/home"
+
+  get "paqes/contact"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

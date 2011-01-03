@@ -1,0 +1,2 @@
+module PaqesHelper
+end
