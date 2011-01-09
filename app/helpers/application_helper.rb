@@ -1,5 +1,5 @@
 module ApplicationHelper
-# Return a title on a per-page basis.
+  
   def title
     base_title = "Group Course"
     if @title.nil?
@@ -7,5 +7,9 @@ module ApplicationHelper
     else
       "#{base_title} | #{@title}"
     end
+  end
+  
+  def logo
+    image_tag("logo.png", :alt => "Sample App", :class => "round")
   end
 end
