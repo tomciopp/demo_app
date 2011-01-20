@@ -6,11 +6,18 @@
       <%= @user.first_name %>
       <%= @user.last_name %>
       </h1>
+      <% if @user.courses.any? %>
+        <table class="courses" summary="User courses">
+          <%= render @courses %>
+        </table>
+        <%= will_paginate @courses %>
+      <% end %>
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.first_name %>
                             <%= @user.last_name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
+      <strong>Courses</strong> <%= @user.courses.count %>
     </td>
   </tr>
 </table>

@@ -1,5 +1,5 @@
 .container {
-  width: 710px;
+  width: 960px;
 }
 
 body {
@@ -181,4 +181,59 @@ ul.users {
 
 .users li {
   list-style: none;
+}
+
+h1.course {
+  margin-bottom: 0.3em;
+}
+
+table.courses {
+  margin-top: 1em;
+}
+
+table.courses tr {
+  height: 70px;
+}
+
+table.courses tr td.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.courses tr td.course {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+table.courses tr td.course span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
+  text-decoration: none;
+}
+
+div.user_info span.user_name {
+  position: absolute;
+}
+
+div.user_info span.courses {
+  font-size: 80%;
+}
+
+form.new_course {
+  margin-bottom: 2em;
+}
+
+form.new_course textarea {
+  height: 4em;
+  margin-bottom: 0;
 }

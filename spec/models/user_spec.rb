@@ -71,7 +71,8 @@ describe User do
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
   end
-describe "password validations" do
+  
+  describe "password validations" do
 
     it "should require a password" do
       User.new(@attr.merge(:password => "", :password_confirmation => "")).
@@ -96,7 +97,7 @@ describe "password validations" do
     end
   end
 
-describe "password encryption" do
+  describe "password encryption" do
 
     before(:each) do
       @user = User.create!(@attr)
@@ -155,6 +156,59 @@ describe "password encryption" do
     it "should be convertible to an admin" do
       @user.toggle!(:admin)
       @user.should be_admin
+    end
+  end
+  
+  describe "course associations" do
+
+    before(:each) do
+      @user = User.create(@attr)
+    end
+
+    it "should have a courses attribute" do
+      @user.should respond_to(:courses)
+    end
+  end
+  
+  describe "course associations" do
+
+    before(:each) do
+      @user = User.create(@attr)
+      @mp1 = Factory(:course, :user => @user, :created_at => 1.day.ago)
+      @mp2 = Factory(:course, :user => @user, :created_at => 1.hour.ago)
+    end
+
+    it "should have a courses attribute" do
+      @user.should respond_to(:courses)
+    end
+
+    it "should have the right courses in the right order" do
+      @user.courses.should == [@mp2, @mp1]
+    end
+    
+    it "should destroy associated courses" do
+      @user.destroy
+      [@mp1, @mp2].each do |course|
+        Course.find_by_id(course.id).should be_nil
+      end
+    end
+    
+    describe "status feed" do
+
+      it "should have a feed" do
+        @user.should respond_to(:feed)
+      end
+
+      it "should include the user's courses" do
+        @user.feed.include?(@mp1).should be_true
+        @user.feed.include?(@mp2).should be_true
+      end
+
+      it "should not include a different user's courses" do
+        mp3 = Factory(:course,
+                      :user => Factory(:user, :email => Factory.next(:email)))
+        @user.feed.include?(mp3).should be_false
+      end
     end
   end
 end

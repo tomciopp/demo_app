@@ -48,6 +48,16 @@ describe UsersController do
       @user = Factory(:user)
     end
 
+    it "should show the user's courses" do
+      mp1 = Factory(:course, :user => @user, :content => "Foo bar", :body => "This is the mp1 body")
+      mp2 = Factory(:course, :user => @user, :content => "Baz quux", :body => "This is the mp2 body")
+      get :show, :id => @user
+      response.should have_selector("span.content", :content => mp1.content)
+      response.should have_selector("span.content", :content => mp2.content)
+      response.should have_selector("span.body", :body => mp1.body)
+      response.should have_selector("span.body", :body => mp2.body)
+    end
+    
     it "should be successful" do
       get :show, :id => @user
       response.should be_success
@@ -129,11 +139,6 @@ describe UsersController do
       it "should redirect to the user show page" do
         post :create, :user => @attr
         response.should redirect_to(user_path(assigns(:user)))
-      end
-      
-      it "should have a welcome message" do
-        post :create, :user => @attr
-        flash[:success].should =~ /welcome to the sample app/i
       end
       
       it "should sign the user in" do
