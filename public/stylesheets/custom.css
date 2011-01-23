@@ -2,9 +2,9 @@
   width: 960px;
 }
 
-body {
-  background: #B8B8B8;
-}
+body { background: url(/images/main-bg.jpg) repeat-x; font-family: arial; }
+#wrap { width: 960px; margin: 0 auto; }
+
 
 header {
   padding-top: 20px;
@@ -12,11 +12,11 @@ header {
 
 header img {
   padding: 1em;
-  background: #404040;
+  background: #333333;
 }
 
 section {
-  margin-top: 1em;
+  margin-top: 2.4em;
   font-size: 120%;
   padding: 20px;
   background: #FFFFFF;
@@ -83,11 +83,6 @@ a.signup_button {
   margin-right: auto;
   display: block;
   text-align: center;
-  width: 190px;
-  color: #fff;
-  background: #006400;
-  font-size: 150%;
-  font-weight: bold;
   padding: 20px;
 }
 /* Round corners */
