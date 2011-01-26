@@ -49,13 +49,15 @@ describe UsersController do
     end
 
     it "should show the user's courses" do
-      mp1 = Factory(:course, :user => @user, :content => "Foo bar", :body => "This is the mp1 body")
-      mp2 = Factory(:course, :user => @user, :content => "Baz quux", :body => "This is the mp2 body")
+      mp1 = Factory(:course, :user => @user, :content => "Foo bar", :body => "This is the mp1 body", :location => "27109")
+      mp2 = Factory(:course, :user => @user, :content => "Baz quux", :body => "This is the mp2 body", :location => "27106")
       get :show, :id => @user
       response.should have_selector("span.content", :content => mp1.content)
       response.should have_selector("span.content", :content => mp2.content)
       response.should have_selector("span.body", :body => mp1.body)
       response.should have_selector("span.body", :body => mp2.body)
+      response.should have_selector("span.location", :location => mp1.location)
+      response.should have_selector("span.location", :location => mp2.location)
     end
     
     it "should be successful" do

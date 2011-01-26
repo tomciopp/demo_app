@@ -4,7 +4,9 @@ describe Course do
  
  before(:each) do
     @user = Factory(:user)
-    @attr = { :content => "value for content", :body => "value for the body"}
+    @attr = { :content => "value for content",
+              :body => "value for the body",
+              :location => "27109" }
   end
 
   it "should create a new instance given valid attributes" do
@@ -46,7 +48,19 @@ describe Course do
     end
 
     it "should reject long bodies" do
-      @user.courses.build(:bdoy => "a" * 1001).should_not be_valid
+      @user.courses.build(:body => "a" * 1001).should_not be_valid
+    end
+    
+    it "should require nonblank location" do
+      @user.courses.build(:location => " ").should_not be_valid
+    end
+    
+    it "should reject long locations" do
+      @users.courses.build(:location => "1" * 6).should_not be_valid
+    end
+    
+    it "should reject short locations" do
+      @users.courses.build(:location => "1" * 4).should_not be_valid
     end
   end
 end

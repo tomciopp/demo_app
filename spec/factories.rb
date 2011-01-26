@@ -14,5 +14,6 @@ end
 Factory.define :course do |course|
   course.content "Foo bar"
   course.body "This will be the description of the course"
+  course.location "27109"
   course.association :user
 end

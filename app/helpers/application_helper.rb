@@ -44,4 +44,8 @@ module ApplicationHelper
   def settings
     image_tag("settings.png", :alt => "Settings")
   end
+  
+  def about
+    image_tag("about.png", :alt => "About")
+  end
 end

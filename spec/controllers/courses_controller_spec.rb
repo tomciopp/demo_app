@@ -25,7 +25,7 @@ describe CoursesController do
     describe "failure" do
 
       before(:each) do
-        @attr = { :content => "", :body => "" }
+        @attr = { :content => "", :body => "", :location => "" }
       end
 
       it "should not create a course" do
@@ -43,7 +43,7 @@ describe CoursesController do
     describe "success" do
 
       before(:each) do
-        @attr = { :content => "Lorem ipsum", :body => "Dolor sit amet" }
+        @attr = { :content => "Lorem ipsum", :body => "Dolor sit amet", :location => "27109" }
       end
 
       it "should create a course" do
