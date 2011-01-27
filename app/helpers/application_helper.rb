@@ -13,8 +13,8 @@ module ApplicationHelper
     image_tag("groupcourselogo.png", :alt => "Group Course", :class => "round")
   end
   
-  def signup
-    image_tag("signup.png", :alt => "Sign Up")
+  def signbutton
+    image_tag("signup.png", :alt => "Sign Up", :class => "round")
   end
   
   def home
