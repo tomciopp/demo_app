@@ -14,10 +14,11 @@
       <% end %>
     </td>
     <td class="sidebar round">
-      <strong>Name</strong> <%= @user.first_name %>
+      <strong>Name:</strong> <%= @user.first_name %>
                             <%= @user.last_name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
-      <strong>Courses</strong> <%= @user.courses.count %>
+      <strong>URL:</strong>  <%= link_to user_path(@user), @user %><br />
+      <strong>Courses:</strong> <%= @user.courses.count %><br />
+      <strong>Education:</strong> <%= @user.education %>
     </td>
   </tr>
 </table>

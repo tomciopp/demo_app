@@ -1,7 +1,7 @@
 require 'digest'
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :education
   
   has_many :courses, :dependent => :destroy
   
@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   validates :password, :presence => true,
                        :confirmation => true,
                        :length => { :within => 6..40 }
+  validates :education, :presence =>true,
+                        :length =>{ :maximum => 100}
   before_save :encrypt_password
 
   def has_password?(submitted_password)
