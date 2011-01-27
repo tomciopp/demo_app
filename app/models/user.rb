@@ -17,8 +17,7 @@ class User < ActiveRecord::Base
   validates :password, :presence => true,
                        :confirmation => true,
                        :length => { :within => 6..40 }
-  validates :education, :presence =>true,
-                        :length =>{ :maximum => 100}
+  validates :education, :length =>{ :maximum => 100}
   before_save :encrypt_password
 
   def has_password?(submitted_password)

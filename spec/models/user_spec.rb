@@ -160,18 +160,6 @@ describe User do
     end
   end
   
-  describe "education attribute" do
-    
-    before(:each) do
-      @user = User.create!(@attr)
-    end
-    
-    it "should respond to education" do
-      @user.should respond_to(:education)
-    end
-    
-  end
-  
   describe "course associations" do
 
     before(:each) do
