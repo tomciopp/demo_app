@@ -14,7 +14,7 @@ module ApplicationHelper
   end
   
   def signbutton
-    image_tag("signup.png", :alt => "Sign Up", :class => "round")
+    image_tag("Signup.png", :alt => "Sign Up", :class => "round")
   end
   
   def home
