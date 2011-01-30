@@ -1,5 +1,6 @@
 module ApplicationHelper
  include ReCaptcha::ViewHelper
+
   def title
     base_title = "Group Course"
     if @title.nil?
