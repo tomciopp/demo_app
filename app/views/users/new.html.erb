@@ -22,6 +22,7 @@
     <%= f.label :password_confirmation, "Confirmation" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  get_captcha(:options => {:theme => 'white', :tabindex => 10})
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

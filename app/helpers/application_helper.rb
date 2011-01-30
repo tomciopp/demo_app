@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+ include ReCaptcha::ViewHelper
   def title
     base_title = "Group Course"
     if @title.nil?
@@ -48,4 +48,5 @@ module ApplicationHelper
   def about
     image_tag("about.png", :alt => "About")
   end
+  
 end
