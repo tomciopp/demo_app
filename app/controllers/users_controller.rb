@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if validate_recap(params, @user.errors) && @user.save
+      UserMailer.welcome_email(@user).deliver
       sign_in @user
       redirect_to @user, :flash => {:success => "Welcome to Group Course!"}
     else
