@@ -104,6 +104,15 @@ footer {
 footer nav {
   float: none;
 }
+
+.center
+{
+margin-left: auto;
+margin-right: auto;
+padding:0;
+width:50%;
+}
+
 /* User show page */
 
 table.profile {
