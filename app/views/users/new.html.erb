@@ -1,31 +1,13 @@
-<h1>Sign up</h1>
+<div class="center"> <h1>Sign up</h1></div>
 
-<%= form_for(@user) do |f| %>
+<%= simple_form_for(@user) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-    <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmation" %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-  <%= raw get_captcha(:options => {:theme => 'white', :tabindex => 10}) %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  <%= f.input :first_name, :placeholder => 'Example' %>
+  <%= f.input :last_name, :placeholder => 'User' %>
+  <%= f.input :email, :placeholder => 'user@example.com' %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation, :label => "Password Confirmation" %>
+  <%= raw get_captcha(:options => {:theme => 'white', :tabindex => 75}) %>
+  <%= f.button :submit %>
 <% end %>
+  

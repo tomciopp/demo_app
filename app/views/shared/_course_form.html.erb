@@ -1,22 +1,8 @@
-<%= form_for @course do |f| %>
+<%= simple_form_for @course do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-  
-  <div class="field">
-    <%= f.label "Course Title" %><br />
-    <%= f.text_field :content %>
-  </div>
-  
-  <div class="field">
-    <%= f.label "Course Description (max 1000 chars)" %><br />
-    <%= f.text_area :body %>
-  </div>
-  
-  <div class="field">
-    <%= f.label "Course location (zip code)" %><br />
-    <%= f.text_field :location %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit "Submit" %>
-  </div>
+  <%= f.input :content, :label => "Course Title" %>
+  <%= f.input :body, :label => "Course Description" %>
+  <%= f.input :location, :label => "Zip Code", :hint => "This is the zip code of where the course will be held" %>
+  <%= f.button :submit %>
 <% end %>
+  
