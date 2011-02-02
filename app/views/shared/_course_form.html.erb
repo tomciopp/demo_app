@@ -2,7 +2,9 @@
   <%= render 'shared/error_messages', :object => f.object %>
   <%= f.input :content, :label => "Course Title" %>
   <%= f.input :body, :label => "Course Description" %>
-  <%= f.input :location, :label => "Zip Code", :hint => "This is the zip code of where the course will be held" %>
+  <%= f.input :location, :label => "Zip Code", :hint => "**where the course will be held**" %>
+  <%= f.input :start_date, :hint => "format: mm/dd/yyyy" %>
+  <%= f.input :end_date, :hint => "format: mm/dd/yyyy" %>
   <%= f.button :submit %>
 <% end %>
   

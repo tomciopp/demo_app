@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   validates :education, :length =>{ :maximum => 100}
   validates :bio, :length => { :maximum => 500}
   
+  
   before_save :encrypt_password
 
   def has_password?(submitted_password)
@@ -40,6 +41,7 @@ class User < ActiveRecord::Base
   def feed
     Course.where("user_id = ?", id)
   end
+  
   private
 
     def encrypt_password

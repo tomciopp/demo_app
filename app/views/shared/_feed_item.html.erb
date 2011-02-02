@@ -7,7 +7,9 @@
       <%= link_to [feed_item.user.first_name, feed_item.user.last_name].reject(&:empty?).join(' '), feed_item.user %></span><br/>
     <span class="content"><%= feed_item.content %></span><br />
     <span class="body"><%= feed_item.body %></span><br />
-    <span class="location"><%= feed_item.location %></span> 
+    <span class="location"><%= feed_item.location %></span><br />
+    <span class="start_date"><%= feed_item.start_date %></span>
+    <span class="end_date"><%= feed_item.end_date %>
     <span class="timestamp">
       Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
     </span>

@@ -2,7 +2,9 @@
   <td class="course">
     <span class="content"><%= course.content %></span><br />
     <span class="body"><%= course.body %></span><br />
-    <span class="location"><%= course.location %></span>
+    <span class="location"><%= course.location %></span><br /> 
+    <span class="start_date"><%= course.start_date %></span><br />
+    <span class="start_date"><%= course.end_date %></span>
     <span class="timestamp">
       Posted <%= time_ago_in_words(course.created_at) %> ago.
     </span>
