@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @users = User.paginate(:page => params[:page])
   end
   
-    def show
+  def show
     @user = User.find(params[:id])
     @courses = @user.courses.paginate(:page => params[:page])
     @title = [@user.first_name, @user.last_name].reject(&:empty?).join(' ') 

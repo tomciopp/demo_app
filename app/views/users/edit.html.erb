@@ -1,40 +1,19 @@
-<h1>Edit user</h1>
-
-<%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-    <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, "Password Confirmation" %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :education %><br />
-    <%= f.text_field :education %>
-  </div>
-  <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio%> <br />
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<div>
-  <%= gravatar_for @user %>
-  <a href="http://gravatar.com/emails">change user avatar</a>
+<div class="lefttext">
+<h1>Edit user:</h1>
 </div>
+  <div class="changeimg">
+  <%= gravatar_for @user %>
+  <a href="http://gravatar.com/emails"><br />change avatar</a>
+  </div>
+<%= simple_form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+    <%= f.input :first_name %>
+
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation, :label => "Password Confirmation" %><br />
+    <%= f.input :education, :hint => "Limit 100 characters" %>
+    <%= f.input :bio, :as => "text", :hint => "Limit 500 characters" %>
+    <%= f.button :submit %>
+<% end %>

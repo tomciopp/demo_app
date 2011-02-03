@@ -25,5 +25,5 @@
 
 </script>
 
-$(function(){$("#course_start_date").datepicker();});
+
 

@@ -11,4 +11,9 @@ class Course < ActiveRecord::Base
   validates :end_date,   :presence => true, :length => { :is => 10 }
   
   default_scope :order => 'courses.created_at DESC'
+  
+  searchable do
+    text :content, :default_boost => 2
+    text :body,    :default_boost => 1.5
+  end
 end

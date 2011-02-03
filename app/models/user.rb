@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
                        :confirmation => true,
                        :length => { :within => 6..40 }
   validates :education, :length =>{ :maximum => 100}
-  validates :bio, :length => { :maximum => 500}
+  validates :bio,       :length => { :maximum => 500}
   
   
   before_save :encrypt_password

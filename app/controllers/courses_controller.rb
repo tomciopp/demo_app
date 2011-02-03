@@ -12,7 +12,23 @@ class CoursesController < ApplicationController
       render 'pages/home'
     end
   end
-
+  
+  def index
+    @title = "All Courses"
+    @courses = Course.paginate(:page => params[:page])
+    if params[:word]
+      @search = Course.search {keywords params[:word]}
+      @posts = @search.results
+    else
+      @courses = course.all
+    end
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @posts }
+    end
+  end
+  
   def destroy
     @course.destroy
     redirect_to root_path, :flash => {:success => "Course deleted!"}

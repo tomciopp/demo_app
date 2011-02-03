@@ -251,7 +251,7 @@ form.new_course textarea {
 }
 
 .simple_form div.input {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .simple_form div.boolean, .simple_form input[type='submit'] {
@@ -283,4 +283,11 @@ form.new_course textarea {
   color: #555;
   display: block;
   font-style: italic;
+}
+.changeimg {
+  float: right;
+  margin-right: 300px;
+}
+.lefttext {
+  margin-left: 120px;
 }
